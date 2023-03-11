@@ -2,12 +2,12 @@ import { StyleSheet, Text, View } from 'react-native'
 
 import React from 'react'
 
-const Resultado = ({valor, unidad, sufijo, decimales = 2}) => {
+const Resultado = ({valor, unidad, decimales = 2}) => {
     return (
         <View style={styles.resultado}>
             <Text style={styles.unidad}>{unidad}</Text>
             <Text style={styles.valor}>
-                {parseFloat(valor) === NaN ? '-' : valor.toFixed(decimales) + sufijo}
+                {parseFloat(valor) === NaN ? '-' : valor.toFixed(decimales)}
             </Text>
         </View>
     )

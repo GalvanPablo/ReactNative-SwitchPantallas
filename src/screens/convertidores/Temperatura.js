@@ -8,11 +8,7 @@ import { TouchableWithoutFeedback } from 'react-native';
 const Temperatura = () => {
 
     const [valor, setValor] = React.useState('')
-    const [valores, setValores] = React.useState([
-        {unidad: 'Celcius', valor: 0, visible: false},
-        {unidad: 'Fahrenheit', valor: 0, visible: false},
-        {unidad: 'Kelvin', valor: 0, visible: false},
-    ])
+    const [valores, setValores] = React.useState([])
 
     // Manejo del dropdown
     const [open, setOpen] = React.useState(false);
@@ -32,23 +28,20 @@ const Temperatura = () => {
         switch (unidad) {
             case 'Celcius':
                 setValores([
-                    {unidad: 'Celcius', valor: value, visible: false},
-                    {unidad: 'Fahrenheit', valor: value * 1.8 + 32, visible: true},
-                    {unidad: 'Kelvin', valor: value + 273.15, visible: true},
+                    {unidad: 'Fahrenheit', valor: value * 1.8 + 32},
+                    {unidad: 'Kelvin', valor: value + 273.15},
                 ])
                 break;
             case 'Fahrenheit':
                 setValores([
-                    {unidad: 'Celcius', valor: (value - 32) / 1.8, visible: true},
-                    {unidad: 'Fahrenheit', valor: value, visible: false},
-                    {unidad: 'Kelvin', valor: (value - 32) / 1.8 + 273.15, visible: true},
+                    {unidad: 'Celcius', valor: (value - 32) / 1.8},
+                    {unidad: 'Kelvin', valor: (value - 32) / 1.8 + 273.15},
                 ])
                 break;
             case 'Kelvin':
                 setValores([
-                    {unidad: 'Celcius', valor: value - 273.15, visible: true},
-                    {unidad: 'Fahrenheit', valor: (value - 273.15) * 1.8 + 32, visible: true},
-                    {unidad: 'Kelvin', valor: value, visible: false},
+                    {unidad: 'Celcius', valor: value - 273.15},
+                    {unidad: 'Fahrenheit', valor: (value - 273.15) * 1.8 + 32},
                 ])
                 break;
             default:
@@ -84,7 +77,7 @@ const Temperatura = () => {
                     />
                 </View>
 
-                <ListadoResultados valores={valores} sufijo={" º" + unidad[0]} />
+                <ListadoResultados valores={valores} />
             </View>
         </TouchableWithoutFeedback>
     )

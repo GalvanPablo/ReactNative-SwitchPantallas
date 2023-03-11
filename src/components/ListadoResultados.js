@@ -3,10 +3,10 @@ import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import Resultado from './Resultado'
 
-const ListadoResultados = ({valores, sufijo}) => {
+const ListadoResultados = ({valores, decimales}) => {
     return (
         <View style={styles.resultados}>
-            {valores.map((item, index) => item.visible && <Resultado valor={item.valor} unidad={item.unidad} sufijo={sufijo} key={index} />)}
+            {valores.map((item, index) => <Resultado valor={item.valor} unidad={item.unidad} decimales={decimales} key={index} />)}
         </View>
     )
 }
