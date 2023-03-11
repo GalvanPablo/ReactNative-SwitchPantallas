@@ -1,7 +1,7 @@
-import { Keyboard, StyleSheet, Text, View } from 'react-native'
+import { Input, ListadoResultados } from '../../components'
+import { Keyboard, StyleSheet, View } from 'react-native'
 
 import DropDownPicker from 'react-native-dropdown-picker';
-import { Input } from '../../components/index'
 import React from 'react'
 import { TouchableWithoutFeedback } from 'react-native';
 
@@ -67,7 +67,7 @@ const Temperatura = () => {
                 <View style={styles.inputContainer}>
                     <Input 
                         onChangeText={handleInput}
-                        value={valor == NaN ? 0.0 : valor}
+                        value={valor}
                         keyboardType="numeric"
                         style={styles.input}
                     />
@@ -83,20 +83,8 @@ const Temperatura = () => {
                         placeholder="Seleccione una unidad"
                     />
                 </View>
-                <View style={styles.resultados}>
-                    {valores.map((item, index) => {
-                        return (
-                            item.visible && (
-                                <View key={index} style={styles.resultado}>
-                                    <Text style={styles.unidad}>{item.unidad}</Text>
-                                    <Text style={styles.valor}>
-                                        {item.valor === NaN ? '-' : item.valor.toFixed(3) + " º" + item.unidad[0]}
-                                    </Text>
-                                </View>
-                            )
-                        )
-                    })}
-                </View>
+
+                <ListadoResultados valores={valores} sufijo={" º" + unidad[0]} />
             </View>
         </TouchableWithoutFeedback>
     )
@@ -126,25 +114,4 @@ const styles = StyleSheet.create({
     dropdown: {
         backgroundColor: '#fafafa',
     },
-    resultados: {
-        width: '100%',
-        paddingHorizontal: 20,
-        zIndex: -1,
-    },
-    resultado: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingVertical: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
-    },
-    unidad: {
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    valor: {
-        fontSize: 18,
-    }
-
 })
