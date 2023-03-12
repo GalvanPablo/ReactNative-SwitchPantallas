@@ -26,9 +26,10 @@ const styles = StyleSheet.create({
     },
     unidad: {
         fontSize: 18,
-        fontWeight: 'bold',
+        fontFamily: 'Montserrat_700Bold',
     },
     valor: {
         fontSize: 18,
+        fontFamily: 'Montserrat_400Regular',
     }
 })

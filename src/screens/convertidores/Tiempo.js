@@ -126,6 +126,7 @@ const Tiempo = () => {
                         setValue={setUnidad}
                         setItems={setItems}
                         style={styles.dropdown}
+                        textStyle={{fontFamily: 'Montserrat_400Regular'}}
                         containerStyle={styles.dropdownContainer}
                         placeholder="Seleccione una unidad"
                         maxHeight={450}

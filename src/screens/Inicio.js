@@ -6,9 +6,9 @@ import React from 'react'
 
 const Inicio = ({navigation}) => {
     return (
-        <View>
-            <Text>Convertidor de unidades</Text>
-            <View>
+        <View style={styles.screen}>
+            <Text style={styles.title}>Convertidor de unidades</Text>
+            <View style={styles.container}>
                 <Button 
                     title="Temperatura"
                     icon={<FontAwesome5 name="temperature-low" size={24} color="white" />}
@@ -47,5 +47,19 @@ const Inicio = ({navigation}) => {
 export default Inicio
 
 const styles = StyleSheet.create({
-    
+    screen: {
+        flex: 1,
+        alignItems: 'center',
+        paddingTop: 50,
+    },
+    title: {
+        fontSize: 30,
+        marginBottom: 20,
+        fontFamily: 'Montserrat_700Bold',
+        textAlign: 'center',
+    },
+    container: {
+        width: '100%',
+        paddingHorizontal: 20,
+    },
 })

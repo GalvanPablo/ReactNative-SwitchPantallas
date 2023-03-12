@@ -18,5 +18,6 @@ const styles = StyleSheet.create({
         padding: 5,
         borderBottomColor: 'gray',
         borderBottomWidth: 1,
+        fontFamily: 'Montserrat_400Regular',
     },
 })

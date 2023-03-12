@@ -1,10 +1,10 @@
 import * as SplashScreen from 'expo-splash-screen';
 
 import { Montserrat_400Regular, Montserrat_700Bold, useFonts } from '@expo-google-fonts/montserrat';
-import { StyleSheet, Text, View } from 'react-native';
 
 import Navigator from './src/navigators/Navigator';
 import React from 'react';
+import { StyleSheet } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -20,7 +20,6 @@ export default function App() {
     }
   }, [fontsLoaded]);
 
-  // if(!fontsLoaded) return null;
   !fontsLoaded && null;
 
   return (
@@ -34,5 +33,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    fontFamily: 'Montserrat_400Regular',
   },
 });
